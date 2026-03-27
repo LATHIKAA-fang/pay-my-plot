@@ -8,6 +8,17 @@ import qrcode
 
 app = Flask(__name__)
 app.secret_key = "secret"
+@app.route('/')
+def home():
+    return render_template('index.html')
+
+@app.route('/login')
+def login():
+    return render_template('buyer_login.html')
+
+@app.route('/dashboard')
+def dashboard():
+    return render_template('buyer_dashboard.html')
 
 # ---------------- MySQL ----------------
 db = mysql.connector.connect(
