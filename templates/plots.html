@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Plots</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Available Plots</h1>
+
+<table>
+
+<tr>
+<th>ID</th>
+<th>Location</th>
+<th>Size</th>
+<th>Price</th>
+<th>Status</th>
+</tr>
+
+{% for plot in plots %}
+
+<tr>
+
+<td>{{ plot[0] }}</td>
+<td>{{ plot[1] }}</td>
+<td>{{ plot[2] }}</td>
+<td>{{ plot[3] }}</td>
+<td>{{ plot[4] }}</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+</div>
+
+</body>
+
+</html>

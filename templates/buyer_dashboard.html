@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Buyer Dashboard</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Welcome {{buyer.name}}</h2>
+
+<p><b>Land Location:</b> {{buyer.land_location}}</p>
+<p><b>Total Amount:</b> ₹{{buyer.total_amount}}</p>
+<p><b>Initial Paid:</b> ₹{{buyer.initial_paid}}</p>
+<p><b>Balance Amount:</b> ₹{{buyer.balance_amount}}</p>
+<p><b>Monthly Due:</b> ₹{{buyer.due_amount}}</p>
+<p><b>Due End Year:</b> {{buyer.due_end_year}}</p>
+
+<hr>
+
+<h3>Monthly Payment</h3>
+
+<a href="/pay">
+<button class="btn">Pay Monthly Due ₹{{buyer.due_amount}}</button>
+</a>
+
+<hr>
+
+<h3>Payment History</h3>
+
+<table border="1">
+
+<tr>
+<th>Date</th>
+<th>Amount</th>
+<th>Mode</th>
+<th>Receipt</th>
+</tr>
+
+{% for p in payments %}
+
+<tr>
+<td>{{p.payment_date}}</td>
+<td>{{p.amount_paid}}</td>
+<td>{{p.payment_mode}}</td>
+<td><a href="/download/{{p.payment_id}}">Download</a></td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+</div>
+
+</body>
+</html>
