@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>UPI Payment</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#f4f4f4;
+text-align:center;
+}
+
+.card{
+background:white;
+width:350px;
+margin:auto;
+margin-top:50px;
+padding:30px;
+border-radius:10px;
+box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+button{
+padding:12px 20px;
+border:none;
+border-radius:6px;
+color:white;
+font-size:16px;
+cursor:pointer;
+margin:10px;
+}
+
+.gpay{
+background:#4285F4;
+}
+
+.phonepe{
+background:#5f259f;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+<h2>Pay ₹{{amount}}</h2>
+
+<h3>Scan QR</h3>
+
+<img src="/generate_qr/{{amount}}" width="220">
+
+<p>UPI ID: {{upi}}</p>
+
+<p>Scan QR or click below</p>
+
+<a href="{{upi_link}}">
+<button class="gpay">Pay with GPay</button>
+</a>
+
+<a href="{{upi_link}}">
+<button class="phonepe">Pay with PhonePe</button>
+</a>
+
+</div>
+
+</body>
+</html>
